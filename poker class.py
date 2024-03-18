@@ -74,15 +74,23 @@ class PokerHand():
                 return False
         return True
 
+
+
+i = 0
+flushes = 0
 while True:
+    i += 1
     deck = Deck()
     deck.shuffle()
     hand = PokerHand(deck)
     if hand.is_flush:
+        flushes += 1
         print("Found a flush!")
         print(hand)
-        break
+        if flushes == 100:
+            break
 
-
+prob = flushes / i * 100
+print(f"The probability of a flush is {prob}%")
 
 
