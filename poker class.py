@@ -52,19 +52,37 @@ class Deck:
 
 
 
+class PokerHand():
+    def __init__(self, deck):
+        hand = []
+        for i in range(5):
+            hand.append(deck.cards[i])
+        self._hand = hand
 
-card = Card("♦","K")
-print(card)
+    @property
+    def hand(self):
+        return self._hand
 
-card2 = Card(rank="2", suit="♣")
-print(card2)
+    def __str__(self):
+        return str(self.hand)
 
-cards_list = [card, card2]
-print(cards_list)
+    @property
+    def is_flush(self):
+        suit = self.hand[0].suit
+        for i in range(1, 5):
+            if self._hand[i].suit != suit:
+                return False
+        return True
 
-deck = Deck()
-deck.shuffle()
-print(deck)
+while True:
+    deck = Deck()
+    deck.shuffle()
+    hand = PokerHand(deck)
+    if hand.is_flush:
+        print("Found a flush!")
+        print(hand)
+        break
+
 
 
 
