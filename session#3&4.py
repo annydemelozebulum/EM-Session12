@@ -42,3 +42,5 @@ red_point = ColorPoint(10, 10, "red")
 ColorPoint.add_extra_color("orange")
 orange_point = ColorPoint(20, 20, "orange")
 
+
+print(f"{red_point} has distance to origin = {red_point .distance_orig()}")
